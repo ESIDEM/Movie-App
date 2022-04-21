@@ -12,14 +12,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.xtremepixel.movieapp.MovieItem
+import com.xtremepixel.movieapp.model.Movie
+import com.xtremepixel.movieapp.model.getMovies
 import com.xtremepixel.movieapp.screens.MovieScreens
+import com.xtremepixel.movieapp.widgets.MovieItem
 
 @Composable
 fun HomeScreen(navController: NavController) {
 
     Scaffold(topBar = {
-        TopAppBar(backgroundColor = Color.Magenta, elevation = 5.dp) {
+        TopAppBar(backgroundColor = Color.Gray, elevation = 5.dp) {
             Text(text = "Movies")
         }
     }) {
@@ -32,10 +34,7 @@ fun HomeScreen(navController: NavController) {
 @Composable
 fun MainContent(
     navController: NavController,
-    movies: List<String> = listOf(
-        "Sam", "Esidem", "New Series", "Joe", "Caleb",
-        "Sam", "Esidem", "New Series", "Joe", "Caleb"
-    )
+    movies: List<Movie> = getMovies()
 ) {
 
     Column(modifier = Modifier.padding(12.dp)) {
